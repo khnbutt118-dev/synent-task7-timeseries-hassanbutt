@@ -1,0 +1,4 @@
+model,RMSE,MAPE_%
+Naive (last value),5.92,2.66
+Linear trend (last year),7.53,2.95
+Holt-Winters (damped trend),8.68,4.22
