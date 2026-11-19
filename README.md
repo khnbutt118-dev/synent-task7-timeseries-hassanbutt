@@ -1,67 +1,45 @@
-<p align="center"><img src="https://raw.githubusercontent.com/khnbutt118-dev/khnbutt118-dev/main/assets/medical-ai-banner.svg" alt="Hassan Butt — Pharmacy meets Artificial Intelligence" width="100%"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/khnbutt118-dev/khnbutt118-dev/main/assets/medical-ai-banner.svg" width="100%" alt="Hassan Butt — Pharmacy meets Artificial Intelligence"></p>
+<p align="center"><a href="https://github.com/khnbutt118-dev">← PROFILE</a> &nbsp;·&nbsp; <a href="https://hassanbuttportfolio.vercel.app/">PORTFOLIO</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/hassan-butt-ab0036334/">LINKEDIN</a></p>
 
-<p align="center"><a href="https://github.com/khnbutt118-dev">← Back to GitHub profile</a> · <a href="https://hassanbuttportfolio.vercel.app/">Portfolio</a> · <a href="https://www.linkedin.com/in/hassan-butt-ab0036334/">LinkedIn</a></p>
+<p align="center"><img src="https://img.shields.io/badge/SYNENT-TASK%2007-087EAD?style=for-the-badge"><img src="https://img.shields.io/badge/FOCUS-TIME%20SERIES-155E9A?style=for-the-badge"><img src="https://img.shields.io/badge/FORECASTING-BASELINE%20EVALUATION-0B719E?style=for-the-badge"></p>
 
----
+# 📈 AAPL · Time-Series Exploration & Forecasting
+**Trend, volatility, calendar patterns and a simple out-of-sample forecast comparison.**
 
-# Time Series Analysis (Stock Prices)
+<table><tr><td align="center"><h2>1,259</h2><sub>Observations</sub></td><td align="center"><h2>18.7%</h2><sub>Reported CAGR</sub></td><td align="center"><h2>2.7%</h2><sub>Backtest MAPE</sub></td><td align="center"><h2>60</h2><sub>Test trading days</sub></td></tr></table>
 
-> Synent Technologies Data Science Internship | Task 7 (Intermediate level) | Author: Hassan Butt
+## 📉 Visual analysis
+<p align="center"><img src="outputs/trend_and_volatility.png" alt="Price trend and rolling volatility" width="90%"></p>
+<p align="center"><img src="outputs/seasonality_patterns.png" alt="Seasonality patterns" width="90%"></p>
+<p align="center"><img src="outputs/forecast.png" alt="Forecast comparison" width="90%"></p>
+<p align="center"><img src="outputs/seasonal_decomposition.png" alt="Seasonal decomposition" width="90%"></p>
 
-## Problem statement
-Analyse time-based trends and seasonality in stock prices and test simple forecasts honestly.
+## 🧠 What the experiment found
+| Analysis | Result |
+|:--|:--|
+| Price range in the supplied series | 67.85 → 159.54 over 5 years |
+| Best tested forecast baseline | **Naive (last value)** |
+| Backtest MAPE | **2.7%** on the last 60 trading days |
+| Annualised rolling volatility | About **22%** (range 8%–43%) |
+| Calendar pattern | Month 10 highest and month 6 lowest average daily return; weak evidence with ~5 years |
 
-## Dataset details
-- **Dataset:** S&P 500 daily stock prices (5 years)
-- **Source:** https://www.kaggle.com/datasets/camnugent/sandp500
-- **Size used:** 1,259 rows x 1 columns
+## 🔬 Workflow
+30/90-day moving averages → Rolling volatility → Calendar patterns → Seasonal decomposition → 60-day backtest → 30-business-day illustrative forecast
 
-## Approach
-1. Trend analysis with 30/90-day moving averages and rolling volatility
-2. Seasonality: monthly and weekday return patterns, seasonal decomposition
-3. Backtested three forecasting models on the last 60 trading days (naive, linear trend, Holt-Winters)
-4. 30-business-day forecast with the best model (educational, not financial advice)
-
-## Results
-| Metric | Value |
-|---|---|
-| Ticker | AAPL |
-| Observations | 1259 |
-| CAGR | 18.7% |
-| Best forecast model | Naive (last value) |
-| Backtest MAPE | 2.7% |
-
-**Key insights**
-
-- AAPL moved from 67.85 to 159.54 over 5.0 years (CAGR about 18.7% per year).
-- Average annualised volatility (30-day rolling) was about 22%, ranging from 8% to 43%.
-- Calendar month 10 had the highest and month 6 the lowest average daily return, but with only about 5 years of data this seasonality is weak evidence.
-- In the backtest on the last 60 trading days the best model was 'Naive (last value)' (MAPE 2.7%); forecasts of prices are uncertain and are shown for learning only.
-
-**Figures**
-
-![trend_and_volatility.png](outputs/trend_and_volatility.png)
-![seasonality_patterns.png](outputs/seasonality_patterns.png)
-![forecast.png](outputs/forecast.png)
-![seasonal_decomposition.png](outputs/seasonal_decomposition.png)
-
-**Other output files:** `forecast_model_comparison.csv`
-
-## How to run
+## ▶️ Reproduce
 ```bash
 pip install -r requirements.txt
 python main.py
 ```
 
-> Forecasts are for learning only and are not financial advice.
+<details><summary><b>Dataset & evaluation notes</b></summary>
 
-## Project structure
-```
-main.py            # full analysis / pipeline
-requirements.txt
-data/              # dataset (see data/README.md)
-outputs/           # figures, tables and reports
-```
+- Dataset: [S&P 500 daily stock prices](https://www.kaggle.com/datasets/camnugent/sandp500)
+- Series analysed: AAPL · 1,259 observations
+- Model comparison: naive, linear trend, Holt-Winters
+- Output: `forecast_model_comparison.csv`
 
-## Academic integrity
-All analysis code and write-ups in this repository were written by the author. The dataset belongs to its original creators (see link above).
+</details>
+
+> Forecasts are educational demonstrations, not investment advice. A low backtest error on a short holdout does not guarantee future performance.
+<p align="center"><sub>Python · Pandas · Time-series analysis · Forecast evaluation</sub></p>
